@@ -1,6 +1,6 @@
 # Clear workspace and Console
-rm(list = ls())
-cat("\014")
+# rm(list = ls())
+# cat("\014")
 
 if(file.exists("./UCI HAR Dataset")){
         # Load dplyr library
