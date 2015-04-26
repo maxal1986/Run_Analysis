@@ -2,6 +2,8 @@
 # rm(list = ls())
 # cat("\014")
 
+initial_ws <- ls()
+
 if(file.exists("./UCI HAR Dataset")){
         # Load dplyr library
         library(dplyr)
@@ -78,7 +80,8 @@ if(file.exists("./UCI HAR Dataset")){
                 summarise_each_(funs(mean), vars=names(data)[3:68])
         
         # Clear the workspace and leave the result data set only
-        rm(list = setdiff(ls(),c("result")))
+        final_ws <- setdiff(ls(),initial_ws)
+        rm(list = setdiff(final_ws,c("result")))
         
         #Step 9: Creating the file with the tidy data result
         write.table(result, "result.txt", row.names = FALSE)
